@@ -1,10 +1,10 @@
 import whoisfreaks from "../../whoisfreaks.app.mjs";
 
 export default {
-    key: "whoisfreaks-domain-security-lookup",
-    name: "Domain Security Lookup",
-    description: "It's for domain security like if a domain is being used in any sort of malware or phishing campaign.",
-    version: "0.0.4",
+    key: "whoisfreaks-domain-reputation-lookup",
+    name: "Domain Reputation Lookup",
+    description: "It's for domain security or reputation like if a domain is being used in any sort of malware or phishing campaign.",
+    version: "0.0.3",
     annotations: {
         destructiveHint: false,
         openWorldHint: true,
