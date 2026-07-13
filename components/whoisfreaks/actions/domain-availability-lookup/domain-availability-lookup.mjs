@@ -5,7 +5,7 @@ export default {
   name: "Domain Availability Lookup",
   description:
     "Check if a domain name is available for registration. [See the documentation](https://whoisfreaks.com/products/domain-availability-api)",
-  version: "0.0.4",
+  version: "0.0.1",
   annotations: {
     destructiveHint: false,
     openWorldHint: true,
@@ -30,12 +30,7 @@ export default {
         sug: false,
       },
     });
-   if ($ && typeof $.export === "function") {
-      $.export("$summary", `Successfully performed domain availability lookup for ${this.domainName}`);
-    } else {
-      console.log(`Successfully performed domain availability lookup for ${this.domainName}`);
-    }
-
+    $.export("$summary", `Successfully performed domain availability lookup for ${this.domainName}`);
     return response;
   },
 };

@@ -3,7 +3,7 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
     key: "whoisfreaks-bulk-whois-lookup",
     name: "Bulk Whois Lookup",
-    description: "The WhoisFreaks Bulk Lookup API retrieves bulk domain registration data in JSON, CSV or XML formats. Upload a file or use a URL, and instantly get a structured list of domain details including registrant, registrar, IP, ASN, name servers, email, phone, address, and historical records. Supports 100 domains per query with 1000+ TLDs. Free tier: 500 requests.",
+    description: "Retrieve WHOIS registration data (registrant, registrar, name servers, email, phone, address, ASN, history) for up to 100 domains in a single request. Accepts comma-separated domain names across 1000+ TLDs; returns JSON or XML output. Use this action for bulk domain research, lead enrichment, or portfolio audits. [See the documentation](https://whoisfreaks.com/products/bulk-whois-lookup-api)",
     version: "0.0.4",
     annotations: {
         destructiveHint: false,
@@ -14,9 +14,7 @@ export default {
     props: {
         whoisfreaks,
         domainNames: {
-            type: "string",
-            label: "Domain Names",
-            description: "Enter domain names separated by commas",
+            propDefinition: [whoisfreaks, "domainNames"],
         },
         format: {
             propDefinition: [whoisfreaks, "format"],
@@ -30,9 +28,9 @@ export default {
             },
             body: {
                 domainNames: this.domainNames.split(",").map((domain) => domain.trim()),
-            }
+            },
         });
-        console.log("Successfully fetched the bulk whois data: ", response)
+        $.export("$summary", `Successfully fetched bulk WHOIS data for ${this.domainNames.split(",").length} domain(s)`);
         return response;
     },
 };

@@ -3,8 +3,8 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
     key: "whoisfreaks-ip-reputation-lookup",
     name: "IP Reputation Lookup",
-    description: "The WhoisFreaks IP Reputation API scores any IPv4 or IPv6 address against real-time threat data and returns a composite threat score (0–100), VPN, proxy, Tor and bot classification, VPN and proxy provider names with confidence scores, district-level geolocation, ASN and ISP. JSON or XML in one call. Free tier: 500 credits, no card.",
-    version: "0.0.4",
+    description: "Score a single IPv4 or IPv6 address against real-time threat data. Returns a composite threat score (0–100), VPN/proxy/Tor/bot classification, provider names with confidence scores, district-level geolocation, and ASN/ISP details. Use this action for threat intelligence, access control, or fraud prevention workflows. Accepts JSON or XML output. [See the documentation](https://whoisfreaks.com/products/ip-reputation-api)",
+    version: "0.0.1",
     annotations: {
         destructiveHint: false,
         openWorldHint: true,
@@ -14,10 +14,9 @@ export default {
     props: {
         whoisfreaks,
         ipAddress: {
-            type: "string",
+            propDefinition: [whoisfreaks, "ip"],
             label: "IP Address",
-            description: "The IP address to lookup",
-
+            description: "The IPv4 or IPv6 address to score (e.g. 8.8.8.8 or 2606:4700:4700::1111).",
         },
     },
     async run({ $ }) {
@@ -25,10 +24,9 @@ export default {
             $,
             params: {
                 ip: this.ipAddress,
-
             },
         });
-        console.log("Successfully fetched the IP reputation data: ", response)
+        $.export("$summary", `Successfully fetched IP reputation data for ${this.ipAddress}`);
         return response;
     },
 };

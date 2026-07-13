@@ -3,8 +3,8 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
     key: "whoisfreaks-domain-reputation-lookup",
     name: "Domain Reputation Lookup",
-    description: "It's for domain security or reputation like if a domain is being used in any sort of malware or phishing campaign.",
-    version: "0.0.3",
+    description: "Check the reputation and security status of a domain — including whether it is associated with malware, phishing campaigns, or other malicious activity. Use this action for threat intelligence workflows, email security checks, or domain risk scoring. Returns JSON or XML output. [See the documentation](https://whoisfreaks.com/products/domain-reputation-api)",
+    version: "0.0.1",
     annotations: {
         destructiveHint: false,
         openWorldHint: true,
@@ -18,7 +18,7 @@ export default {
         },
         format: {
             propDefinition: [whoisfreaks, "format"],
-        }
+        },
     },
     async run({ $ }) {
         const response = await this.whoisfreaks.domainSecurityLookup({
@@ -28,7 +28,7 @@ export default {
                 format: this.format,
             },
         });
-        console.log("Successfully fetched the domain security data: ", response)
+        $.export("$summary", `Successfully fetched domain reputation data for ${this.domainName}`);
         return response;
     },
 };

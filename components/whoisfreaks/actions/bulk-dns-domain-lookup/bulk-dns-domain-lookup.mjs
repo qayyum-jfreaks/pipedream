@@ -3,7 +3,7 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
     key: "whoisfreaks-bulk-dns-domain-lookup",
     name: "Bulk DNS Domain Lookup",
-    description: "",
+    description: "Retrieve DNS records (A, AAAA, MX, NS, CNAME, TXT, PTR, SPF, DKIM, DMARC, SRV, SOA) for up to 100 domains or IP addresses in a single request. Use this action for bulk DNS auditing, infrastructure mapping, or automated monitoring. Accepts comma-separated domain names and optional IP addresses; returns JSON or XML output. [See the documentation](https://whoisfreaks.com/products/bulk-dns-lookup-api)",
     version: "0.0.5",
     annotations: {
         destructiveHint: false,
@@ -14,16 +14,11 @@ export default {
     props: {
         whoisfreaks,
         domainNames: {
-            type: "string",
-            label: "Domain Names",
-            description: "Enter domain names separated by commas",
+            propDefinition: [whoisfreaks, "domainNames"],
             optional: false,
         },
         ipAddresses: {
-            type: "string",
-            label: "IP Addresses",
-            description: "Enter IP addresses separated by commas",
-            optional: true,
+            propDefinition: [whoisfreaks, "ipAddresses"],
         },
         format: {
             propDefinition: [whoisfreaks, "format"],
@@ -34,14 +29,16 @@ export default {
             $,
             params: {
                 format: this.format,
-                type: "all"
+                type: "all",
             },
             body: {
                 domainNames: this.domainNames.split(",").map((domain) => domain.trim()),
-                ipAddresses: this.ipAddresses.split(",").map((ip) => ip.trim()),
-            }
+                ipAddresses: this.ipAddresses
+                    ? this.ipAddresses.split(",").map((ip) => ip.trim())
+                    : undefined,
+            },
         });
-        console.log("Successfully fetched the bulk dns domain data: ", response)
+        $.export("$summary", `Successfully fetched bulk DNS data for ${this.domainNames.split(",").length} domain(s)`);
         return response;
     },
 };

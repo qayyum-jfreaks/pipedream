@@ -4,9 +4,8 @@ export default {
   key: "whoisfreaks-ip-geolocation-lookup",
   name: "IP Geolocation Lookup",
   description:
-    "Retrieve geolocation details about an IP address. [See the documentation](https://whoisfreaks.com/products/ip-geolocation-api)",
-  version: "0.0.4",
-
+    "Retrieve geolocation details (country, city, region, ASN, ISP, coordinates) for a single IP address. Supports both IPv4 and IPv6 addresses. Use this action to enrich events with location data, perform fraud detection, or geo-target users. [See the documentation](https://whoisfreaks.com/products/ip-geolocation-api)",
+  version: "0.0.1",
   annotations: {
     destructiveHint: false,
     openWorldHint: true,
@@ -16,17 +15,17 @@ export default {
   props: {
     whoisfreaks,
     ip: {
-      type: "string",
-      label: "IP Address",
-      description: "The IP address to look up",
+      propDefinition: [whoisfreaks, "ip"],
     },
   },
-
   async run({ $ }) {
     const response = await this.whoisfreaks.ipGeolocationLookup({
-      ip: this.ip,
+      $,
+      params: {
+        ip: this.ip,
+      },
     });
-    console.log("Response from IP Geolocation Lookup:", response);
+    $.export("$summary", `Successfully fetched geolocation data for IP ${this.ip}`);
     return response;
   },
 };

@@ -4,8 +4,8 @@ export default {
   key: "whoisfreaks-sub-domain-lookup",
   name: "Subdomain Lookup",
   description:
-    "The WhoisFreaks Subdomain Finder API gives you passive access to 6.3B+ indexed hostnames. Use it as a subdomain scanner, subdomain checker, or enumeration tool - returning active, inactive, and historical records in seconds. 500 free credits to start.",
-  version: "0.0.4",
+    "Discover subdomains for a given domain using passive DNS data from 6.3B+ indexed hostnames. Returns active, inactive, and historical subdomain records. Use this action for attack surface mapping, security audits, or competitor research. Returns JSON or XML output. [See the documentation](https://whoisfreaks.com/products/subdomain-finder-api)",
+  version: "0.0.1",
   annotations: {
     destructiveHint: false,
     readOnlyHint: true,
@@ -30,7 +30,7 @@ export default {
         page: 1,
       },
     });
-    console.log("Successfully fetched the subdomain data: ", response)
+    $.export("$summary", `Successfully fetched subdomain data for ${this.domainName}`);
     return response;
   },
 };

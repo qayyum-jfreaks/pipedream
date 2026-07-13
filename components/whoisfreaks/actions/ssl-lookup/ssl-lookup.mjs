@@ -31,17 +31,10 @@ export default {
         sslRaw: false,
       },
     });
-    if ($ && typeof $.export === "function") {
-      $.export(
-        "$summary",
-        `Successfully performed SSL lookup for ${this.domainName}`,
-      );
-    } else {
-      console.log(
-        `Successfully performed SSL lookup for ${this.domainName} and response is: ${JSON.stringify(response)}`,
-      );
-    }
-
+    $.export(
+      "$summary",
+      `Successfully performed SSL lookup for ${this.domainName}`,
+    );
     return response;
   },
 };
