@@ -4,7 +4,7 @@ export default {
   key: "whoisfreaks-ssl-lookup",
   name: "SSL Lookup",
   description:
-    "Retrieve details about a domain's SSL certificate. [See the documentation](https://whoisfreaks.com/products/ssl-certificate-api)",
+    "Retrieve details about a domain's SSL certificate. [See the documentation](https://whoisfreaks.com/documentation/ssl-certificate-api)",
   version: "0.0.4",
   annotations: {
     destructiveHint: false,

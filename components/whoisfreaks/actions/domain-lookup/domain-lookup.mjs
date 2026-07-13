@@ -3,7 +3,7 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
   key: "whoisfreaks-domain-lookup",
   name: "Domain Lookup",
-  description: "Retrieve details about a domain name. [See the documentation](https://whoisfreaks.com/products/whois-api#live_lookup)",
+  description: "Retrieve details about a domain name. [See the documentation](https://whoisfreaks.com/documentation/whois-api",
   version: "0.0.3",
   annotations: {
     destructiveHint: false,

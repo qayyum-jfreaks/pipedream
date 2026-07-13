@@ -4,7 +4,7 @@ export default {
   key: "whoisfreaks-domain-availability-lookup",
   name: "Domain Availability Lookup",
   description:
-    "Check if a domain name is available for registration. [See the documentation](https://whoisfreaks.com/products/domain-availability-api)",
+    "Check if a domain name is available for registration. [See the documentation](https://whoisfreaks.com/documentation/domain-availability-api#lookup)",
   version: "0.0.1",
   annotations: {
     destructiveHint: false,

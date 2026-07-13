@@ -3,7 +3,7 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
     key: "whoisfreaks-bulk-dns-domain-lookup",
     name: "Bulk DNS Domain Lookup",
-    description: "Retrieve DNS records (A, AAAA, MX, NS, CNAME, TXT, PTR, SPF, DKIM, DMARC, SRV, SOA) for up to 100 domains or IP addresses in a single request. Use this action for bulk DNS auditing, infrastructure mapping, or automated monitoring. Accepts comma-separated domain names and optional IP addresses; returns JSON or XML output. [See the documentation](https://whoisfreaks.com/products/bulk-dns-lookup-api)",
+    description: "Retrieve DNS records (A, AAAA, MX, NS, CNAME, TXT, PTR, SPF, DKIM, DMARC, SRV, SOA) for up to 100 domains or IP addresses in a single request. Use this action for bulk DNS auditing, infrastructure mapping, or automated monitoring. Accepts comma-separated domain names and optional IP addresses; returns JSON or XML output. [See the documentation](https://whoisfreaks.com/documentation/dns-checker-api#bulk-domain-lookup)",
     version: "0.0.5",
     annotations: {
         destructiveHint: false,
