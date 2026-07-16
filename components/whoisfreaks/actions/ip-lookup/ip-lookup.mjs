@@ -3,8 +3,8 @@ import whoisfreaks from "../../whoisfreaks.app.mjs";
 export default {
   key: "whoisfreaks-ip-lookup",
   name: "IP Lookup",
-  description: "Retrieve information about an IP address. [See the documentation](https://whoisfreaks.com/documentation/asn-whois-api)",
-  version: "0.0.2",
+  description: "Retrieve information about an IP address. [See the documentation](https://whoisfreaks.com/documentation/ip-whois-api)",
+  version: "0.0.3",
   annotations: {
     destructiveHint: false,
     openWorldHint: true,

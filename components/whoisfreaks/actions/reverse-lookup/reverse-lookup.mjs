@@ -5,8 +5,8 @@ export default {
   key: "whoisfreaks-reverse-lookup",
   name: "Reverse Lookup",
   description:
-    "Retrieve details about a domain by keyword, email, registrant name or company. [See the documentation](https://whoisfreaks.com/products/whois-api#reverse_lookup)",
-  version: "0.0.2",
+    "Retrieve details about a domain by keyword, email, registrant name or company. [See the documentation](https://whoisfreaks.com/documentation/whois-api#reverse-lookup)",
+  version: "0.0.3",
   annotations: {
     destructiveHint: false,
     openWorldHint: true,
