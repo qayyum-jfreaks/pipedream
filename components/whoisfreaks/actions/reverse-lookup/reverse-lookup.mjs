@@ -55,15 +55,19 @@ export default {
     },
   },
   async run({ $ }) {
-    if (
-      [this.keyword, this.email, this.owner, this.company].filter(
-        (v) => v !== undefined,
-      ).length !== 1
-    ) {
+    const lookupValues = [this.keyword, this.email, this.owner, this.company];
+    const activeCount = lookupValues.filter((v) => {
+      if (v === undefined || v === null) return false;
+      if (typeof v === "string" && v.trim() === "") return false;
+      return true;
+    }).length;
+
+    if (activeCount !== 1) {
       throw new ConfigurationError(
-        "Must enter one and only one of `keyword`, `email`, `owner`, or `company`",
+        "Must enter one and only one of keyword, email, owner, or company"
       );
     }
+
 
     const response = await this.whoisfreaks.domainLookup({
       $,
