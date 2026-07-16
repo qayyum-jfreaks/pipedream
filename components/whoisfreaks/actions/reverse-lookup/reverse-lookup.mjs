@@ -78,7 +78,7 @@ export default {
         company: this.company,
         whois: "reverse",
         format: this.format,
-        page: this.page,
+        page: this.page || 1,
       },
     });
 

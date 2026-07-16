@@ -20,6 +20,14 @@ export default {
     format: {
       propDefinition: [whoisfreaks, "format"],
     },
+    page: {
+      type: "integer",
+      label: "Page",
+      description:
+        "For getting next or desired page of whois info. Default: `1`",
+      default: 1,
+      optional: true,
+    },
   },
   async run({ $ }) {
     const response = await this.whoisfreaks.subDomainLookup({
@@ -27,7 +35,7 @@ export default {
       params: {
         domain: this.domainName,
         format: this.format,
-        page: 1,
+        page: this.page || 1,
       },
     });
     $.export("$summary", `Successfully fetched subdomain data for ${this.domainName}`);
