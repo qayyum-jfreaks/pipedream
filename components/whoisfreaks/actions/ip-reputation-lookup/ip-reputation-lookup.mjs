@@ -15,8 +15,6 @@ export default {
         whoisfreaks,
         ipAddress: {
             propDefinition: [whoisfreaks, "ip"],
-            label: "IP Address",
-            description: "The IPv4 or IPv6 address to score (e.g. 8.8.8.8 or 2606:4700:4700::1111).",
         },
     },
     async run({ $ }) {

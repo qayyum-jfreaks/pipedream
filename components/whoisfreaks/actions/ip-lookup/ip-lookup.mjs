@@ -14,9 +14,7 @@ export default {
   props: {
     whoisfreaks,
     ip: {
-      type: "string",
-      label: "IP",
-      description: "IPv4 or IPv6 address for the requested whois",
+      propDefinition: [whoisfreaks, "ip"],
     },
     format: {
       propDefinition: [
