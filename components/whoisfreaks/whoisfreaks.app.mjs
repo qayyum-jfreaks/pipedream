@@ -17,7 +17,7 @@ export default {
     ipAddresses: {
       type: "string[]",
       label: "IP Addresses",
-      description: "Enter IP addresses separated by commas (e.g. 8.8.8.8,1.1.1.1). Supports IPv4 and IPv6. Up to 100 IPs per request.",
+      description: "IP addresses to look up (e.g. `8.8.8.8`, `1.1.1.1`). Add one or more values. Supports IPv4 and IPv6, up to 100 IPs per request."
       optional: true,
     },
     ip: {
