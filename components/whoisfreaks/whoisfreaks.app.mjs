@@ -12,7 +12,7 @@ export default {
     domainNames: {
       type: "string[]",
       label: "Domain Names",
-      description: "Enter domain names separated by commas (e.g. example.com,google.com). Supports up to 100 domains per request.",
+      description: "Domain names to look up (e.g. `example.com`, `google.com`). Add one or more values. Supports up to 100 domains per request."
     },
     ipAddresses: {
       type: "string[]",
