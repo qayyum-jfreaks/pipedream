@@ -1,4 +1,5 @@
 import whoisfreaks from "../../whoisfreaks.app.mjs";
+import { parseObject } from "../../common/utils.mjs";
 
 export default {
     key: "whoisfreaks-bulk-ip-geolocation-lookup",
@@ -22,7 +23,7 @@ export default {
         },
     },
     async run({ $ }) {
-        const ipAddresses = this.whoisfreaks._parseArray(this.ipAddresses);
+        const ipAddresses = parseObject(this.ipAddresses);
         const response = await this.whoisfreaks.bulkIpGeolocationLookup({
             $,
             params: {

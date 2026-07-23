@@ -26,6 +26,7 @@ export default {
       description:
         "For getting next or desired page of whois info. Default: `1`",
       default: 1,
+      min: 1,
       optional: true,
     },
   },

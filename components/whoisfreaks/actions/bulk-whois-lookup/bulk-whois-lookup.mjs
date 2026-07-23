@@ -1,4 +1,5 @@
 import whoisfreaks from "../../whoisfreaks.app.mjs";
+import { parseObject } from "../../common/utils.mjs";
 
 export default {
     key: "whoisfreaks-bulk-whois-lookup",
@@ -21,7 +22,7 @@ export default {
         },
     },
     async run({ $ }) {
-        const domainNames = this.whoisfreaks._parseArray(this.domainNames);
+        const domainNames = parseObject(this.domainNames);
         const response = await this.whoisfreaks.bulkWhoisLookup({
             $,
             params: {

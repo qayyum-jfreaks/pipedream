@@ -17,7 +17,7 @@ export default {
     ipAddresses: {
       type: "string[]",
       label: "IP Addresses",
-      description: "IP addresses to look up (e.g. `8.8.8.8`, `1.1.1.1`). Add one or more values. Supports IPv4 and IPv6, up to 100 IPs per request."
+      description: "IP addresses to look up (e.g. `8.8.8.8`, `1.1.1.1`). Add one or more values. Supports IPv4 and IPv6, up to 100 IPs per request.",
       optional: true,
     },
     ip: {
@@ -38,18 +38,6 @@ export default {
   methods: {
     _baseUrl() {
       return "https://api.whoisfreaks.com";
-    },
-    _parseArray(value) {
-      if (!value) {
-        return [];
-      }
-      if (Array.isArray(value)) {
-        return value.flatMap((v) => typeof v === "string" ? v.split(",").map((x) => x.trim()) : v).filter(Boolean);
-      }
-      if (typeof value === "string") {
-        return value.split(",").map((v) => v.trim()).filter(Boolean);
-      }
-      return [value];
     },
     _makeRequest({ $ = this, path, params, ...opts }) {
       return axios($, {
@@ -109,7 +97,7 @@ export default {
         ...opts,
       });
     },
-    domainSecurityLookup(opts = {}) {
+    lookupDomainAvailability(opts = {}) {
       return this._makeRequest({
         path: "/v1/domain/security",
         ...opts,
